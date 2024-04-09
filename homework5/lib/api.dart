@@ -23,7 +23,7 @@ class _ApiPageState extends State<ApiPage> {
     List list = jsonDecode(response.data);
 
     setState(() {
-      _coffees = list.map((cartoons) => coffee.fromJson(cartoons)).toList();
+      _coffees = list.map((coffees) => coffee.fromJson(coffees)).toList();
 
       //     // เรียงลำดับตามชื่อจาก A ไป Z (กรณีต้องการเรียงลำดับ)
       _coffees!.sort((a, b) => a.title.compareTo(b.title));
@@ -72,8 +72,8 @@ class _ApiPageState extends State<ApiPage> {
     );
   }
 
-  Future<void> _showMyDialog(String title, String image, String description,  int id,) async {
-  coffee c = new coffee(title: title, image: image, description: description,  id: id);
+  Future<void> _showMyDialog(String title, String description,String image,   int id,) async {
+  coffee c = new coffee(title: title, description: description,image: image,   id: id);
   return showDialog<void>(
     context: context,
     barrierDismissible: false, // user must tap button!
